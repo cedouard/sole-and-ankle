@@ -15,14 +15,16 @@ const ShoeIndex = ({ sortId, setSortId }) => {
       <MainColumn>
         <Header>
           <Title>Running</Title>
-          <Select
-            label="Sort"
-            value={sortId}
-            onChange={(ev) => setSortId(ev.target.value)}
-          >
-            <option value="newest">Newest Releases</option>
-            <option value="price">Price</option>
-          </Select>
+          <SelectWrapper>
+            <Select
+              label="Sort"
+              value={sortId}
+              onChange={(ev) => setSortId(ev.target.value)}
+            >
+              <option value="newest">Newest Releases</option>
+              <option value="price">Price</option>
+            </Select>
+          </SelectWrapper>
         </Header>
         <Spacer size={34} />
         <ShoeGrid />
@@ -42,17 +44,39 @@ const ShoeIndex = ({ sortId, setSortId }) => {
   );
 };
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
 
-const LeftColumn = styled.div``;
+const LeftColumn = styled.div`
+  order: 1;
+  flex-basis: 280px;
+  padding-top: 14px;
+`;
 
-const MainColumn = styled.div``;
+const MainColumn = styled.div`
+  order: 2;
+  flex-grow: 1;
+`;
 
-const Header = styled.header``;
+const Header = styled.header`
+  display: flex;
+`;
 
 const Title = styled.h2`
   font-size: 1.5rem;
   font-weight: ${WEIGHTS.medium};
+  margin-right: auto;
+  margin-top: 4px;
+`;
+
+const SelectWrapper = styled.div`
+  display: inline-block;
+  label {
+    display: flex;
+    align-items: center;
+  }
 `;
 
 export default ShoeIndex;

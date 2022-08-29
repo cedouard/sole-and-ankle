@@ -53,23 +53,43 @@ const ShoeCard = ({
 const Link = styled.a`
   text-decoration: none;
   color: inherit;
+  display: inline-block;
+  flex: 1;
+  flex-basis: 30%;
+
+  @media screen and (max-width: 1240px) {
+    flex-basis: 45%;
+  }
+
+  @media screen and (max-width: 900px) {
+    flex-basis: 100%;
+  }
 `;
 
-const Wrapper = styled.article``;
+const Wrapper = styled.article`
+  display: inline-flex;
+  flex-direction: column;;
+  width: 100%;
+`;
 
 const ImageWrapper = styled.div`
   position: relative;
 `;
 
-const Image = styled.img``;
+const Image = styled.img`
+  border-radius: 16px 16px 4px 4px;
+  width: 100%;
+`;
 
 const Row = styled.div`
+  display: flex;
   font-size: 1rem;
 `;
 
 const Name = styled.h3`
   font-weight: ${WEIGHTS.medium};
   color: ${COLORS.gray[900]};
+  margin-right: auto;
 `;
 
 const Price = styled.span``;
